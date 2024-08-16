@@ -35,47 +35,59 @@ public class Calculadora {
         return resultado;
     }
 
-    public static void calcular(char operacion, int numA, int numB) {
+    public static void calcular(String operacion, int numA, int numB) {
         switch (operacion) {
-            case '+':
+            case "suma":
                 System.out.println(sumar(numA, numB));
                 break;
-            case '-':
+            case "resta":
                 System.out.println(restar(numA, numB));
                 break;
-            case '*':
+            case "multiplicacion":
                 System.out.println(multiplicar(numA, numB));
                 break;
-            case '/':
+            case "division":
                 System.out.println(dividir(numA, numB));
                 break;
         }
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Por favor ingrese la operacion que desea realizar:");
-        System.out.println("1. Suma");
-        System.out.println("2. Resta");
-        System.out.println("3. Multiplicación");
-        System.out.println("4. División");
-        System.out.println("5. Salir");
-        char operacion = scanner.nextLine().charAt(0); 
 
-        System.out.println("Ingrese el valor 1");
-        int numA = scanner.nextInt();
+        boolean centinela = true;
 
-        System.out.println("Ingrese el valor 2");
-        int numB = scanner.nextInt();
+        while (centinela) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Por favor ingrese la operacion que desea realizar:");
+            System.out.println("1. Suma");
+            System.out.println("2. Resta");
+            System.out.println("3. Multiplicación");
+            System.out.println("4. División");
+            System.out.println("5. Salir");
+            String operacion = scanner.nextLine();
 
-        calcular(operacion, numA, numB);
+            if (operacion.equals("suma") || operacion.equals("resta") || operacion.equals("multiplicacion") || operacion.equals("division")) {
+                System.out.println("Ingrese el valor 1");
+                int numA = scanner.nextInt();
 
+                System.out.println("Ingrese el valor 2");
+                int numB = scanner.nextInt();
+
+                calcular(operacion, numA, numB);
+            }
+            if(operacion.equals("salir")){
+                centinela=false;
+                System.out.println("Chaoooooooo pues");
+            }
+        }
     }
 
-    /*public static void main(String[] args) {
-        int operacion = 1;
-        int a = 10;
-        int b = 5;
-        calcular(3, 5, 5);
-    }*/
+    /*
+     * public static void main(String[] args) {
+     * int operacion = 1;
+     * int a = 10;
+     * int b = 5;
+     * calcular(3, 5, 5);
+     * }
+     */
 }
