@@ -9,22 +9,21 @@ public class SumaArreglo {
 
     /**
      * Metodo que permite ingresar datos a un arreglo
+     * 
      * @param tamanio del arreglo
      * @return arreglo con los datos ingresados por el usuario
      */
     public static int[] ingresarDatos(int tamanio) {
-        Scanner scanner = new Scanner(System.in);
         int[] arreglo = new int[tamanio];
-        System.out.println("Ingrese los elementos del arreglo:");
         for (int i = 0; i < tamanio; i++) {
-            System.out.print("Elemento " + (i + 1) + ": ");
-           arreglo[i] = scanner.nextInt();
+            arreglo[i] = ingresarTamanio();
         }
         return arreglo;
     }
 
     /**
      * Metodo que permite imprimir el resultado de la suma del arreglo
+     * 
      * @param suma
      */
     public static void imprimirSuma(int suma) {
@@ -33,6 +32,7 @@ public class SumaArreglo {
 
     /**
      * Metodo que permite sumar todos los elementos de un arreglo
+     * 
      * @param arreglo de numeros enteros que se va a sumar
      * @return la suma de todos los elementos del arreglo
      */
@@ -46,15 +46,15 @@ public class SumaArreglo {
 
     /**
      * Metodo que permite al usuario ingresar el tamaño del arreglo
+     * 
      * @return tamaño del arreglo ingresado por el usuario
      */
     public static int ingresarTamanio() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese el tamaño del arreglo: ");
+        System.out.print("Ingrese un dato: ");
         return scanner.nextInt();
     }
 
-    
     public static void main(String[] args) {
         int tamanio = ingresarTamanio();
         int[] arreglo = ingresarDatos(tamanio);
@@ -62,5 +62,4 @@ public class SumaArreglo {
         imprimirSuma(suma);
     }
 
-    
 }

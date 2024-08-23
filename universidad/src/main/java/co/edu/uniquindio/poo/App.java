@@ -6,6 +6,14 @@ package co.edu.uniquindio.poo;
  */
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Estudiante estudiante = new Estudiante("Raul", "Rivera", "1222", "r@", "3111", 30);
+
+        Estudiante estudiante2 = new Estudiante("Yulbraynner", "Rivera", "1222", "r@", "3111", 30);
+
+        Estudiante estudiant3 = new Estudiante("Juliana", "Rivera", "1222", "r@", "3111", 30);
+
+        System.out.println(estudiante.toString());
+        System.out.println(estudiante2.toString());
+        System.out.println(estudiant3.toString());
     }
 }
