@@ -35,8 +35,4 @@ public class Vocal {
         System.out.println("La cantidad de vocales que tiene la palabra " + palabra + " son " + contarVocales(palabra) + " vocales");
     }
 
-
-
-
-    
 }
