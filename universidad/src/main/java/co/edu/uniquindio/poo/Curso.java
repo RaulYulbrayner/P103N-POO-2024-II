@@ -6,13 +6,16 @@ import java.util.LinkedList;
 public class Curso {
 
     private String nombre;
-    private double notaDef;
     private Profesor profesor;
     public Collection<Estudiante> estudiantes;
 
-    public Curso(String nombre, double notaDef, Profesor profesor) {
+    /**
+     * Metodo constructor de la clase curso
+     * @param nombre
+     * @param profesor
+     */
+    public Curso(String nombre,Profesor profesor) {
         this.nombre = nombre;
-        this.notaDef = notaDef;
         this.profesor = profesor;
         estudiantes = new LinkedList<>();
     }
@@ -20,10 +23,46 @@ public class Curso {
     /*
      * Metodos que deben realizar
      * - calcularNotaDe(notas)
-     * - agregarEstudiante(Estudiante)
-     * - verificarEstudiante(double cedula)
-     * - eliminarEstudiante(double cedula)
      */
+
+    public void agregarEstudiante(Estudiante estudiante) {
+        if (!verificarEstudiante(estudiante.getNumeroIdentificacion())) {
+            estudiantes.add(estudiante);
+        }
+    }
+
+    public boolean verificarEstudiante(String id) {
+        boolean centinela = false;
+        for (Estudiante estudiante : estudiantes) {
+            if (estudiante.getNumeroIdentificacion().equals(id)) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
+    public void eliminarEstudiante(String id) {
+        for (Estudiante estudiante : estudiantes) {
+            if (estudiante.getNumeroIdentificacion().equals(id)) {
+                estudiantes.remove(estudiante);
+                break;
+            }
+        }
+    }
+
+    public double calcularNotaDefinitiva(String id, double nota1, double nota2, double nota3) {
+        for (Estudiante estudiante : estudiantes) {
+            if (estudiante.getNumeroIdentificacion().equals(id)) {
+                estudiante.setNota1(nota1);
+                estudiante.setNota2(nota2);
+                estudiante.setNota3(nota3);
+
+                double definitiva = (nota1 + nota2 + nota3) / 3;
+                return definitiva;
+            }
+        }
+        return -1;
+    }
 
     public String getNombre() {
         return nombre;
@@ -31,14 +70,6 @@ public class Curso {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public double getNotaDef() {
-        return notaDef;
-    }
-
-    public void setNotaDef(double notaDef) {
-        this.notaDef = notaDef;
     }
 
     public Profesor getProfesor() {
@@ -55,6 +86,11 @@ public class Curso {
 
     public void setEstudiantes(Collection<Estudiante> estudiantes) {
         this.estudiantes = estudiantes;
+    }
+
+    @Override
+    public String toString() {
+        return "Curso [nombre=" + nombre + ", profesor=" + profesor + ", estudiantes=" + estudiantes + "]";
     }
 
 }

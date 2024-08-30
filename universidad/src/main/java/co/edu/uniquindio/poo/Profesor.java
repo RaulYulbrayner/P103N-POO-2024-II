@@ -36,6 +36,11 @@ public class Profesor {
         this.categoria = categoria;
     }
 
+    @Override
+    public String toString() {
+        return "Profesor [nombre=" + nombre + "]";
+    }
+
     
 
     
