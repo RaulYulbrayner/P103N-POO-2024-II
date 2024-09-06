@@ -15,15 +15,15 @@ public class Gimnasio {
     }
 
     public void agregarMiembro(Miembro miembro) {
-        if (!verificarMiembro(miembro.getCedula())) {
+        if (!verificarMiembro(miembro.getNombre())) {
             miembros.add(miembro);
         }
     }
 
-    public boolean verificarMiembro(String cedula) {
+    public boolean verificarMiembro(String nombre) {
         boolean centinela = false;
         for (Miembro miembro : miembros) {
-            if (miembro.getCedula().equals(cedula)) {
+            if (miembro.getNombre().equals(nombre)) {
                 centinela = true;
             }
         }
@@ -46,9 +46,9 @@ public class Gimnasio {
         return centinela;
     }
 
-    public void eliminarMiembro(String cedula) {
+    public void eliminarMiembro(String nombre) {
         for (Miembro miembro : miembros) {
-            if (miembro.getCedula().equals(cedula)) {
+            if (miembro.getNombre().equals(nombre)) {
                 miembros.remove(miembro);
                 break;
             }

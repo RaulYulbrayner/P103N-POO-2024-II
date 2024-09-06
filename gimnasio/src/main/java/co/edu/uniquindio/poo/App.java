@@ -12,8 +12,9 @@ public class App {
         Gimnasio gimnasio = new Gimnasio("Bodytech");
 
         // Se crean los miembros
-        Miembro miembro1 = new Miembro("Carlos", 20, "Masculino", "12345", Tipo_membresia.MENSUAL);
-        Miembro miembro2 = new Miembro("Mario", 17, "Masculino", "1235", Tipo_membresia.ANUAL);
+        Miembro miembro1 = new Miembro("Carlos", 20, "Masculino", Tipo_membresia.MENSUAL);
+        Miembro miembro2 = new Miembro("Carlos", 17, "Masculino", Tipo_membresia.ANUAL);
+        Miembro miembro3 = new Miembro("Maria", 16, "Femenino", Tipo_membresia.TRIMESTRAL);
 
         // Se crean los entrenadores
         Entrenador entrenador = new Entrenador("Jorge", "Pesas", "1234", "jorge@gmail.com");
@@ -21,6 +22,7 @@ public class App {
         // Se agregan los miembros al gimnasio
         gimnasio.agregarMiembro(miembro1);
         gimnasio.agregarMiembro(miembro2);
+        gimnasio.agregarMiembro(miembro3);
 
         // Se agregan los entrenadores al gimnasio
         gimnasio.agregarEntrenador(entrenador);

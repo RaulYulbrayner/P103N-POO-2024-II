@@ -4,7 +4,6 @@ public class Miembro {
     private String nombre;
     private int edad;
     private String genero;
-    private String cedula;
     private Tipo_membresia tipo_membresia;
 
     /**
@@ -15,21 +14,17 @@ public class Miembro {
      * @param cedula
      * @param membresia
      */
-    public Miembro(String nombre, int edad, String genero, String cedula, Tipo_membresia tipo_membresia) {
+    public Miembro(String nombre, int edad, String genero, Tipo_membresia tipo_membresia) {
         this.nombre = nombre;
         this.edad = edad;
         this.genero = genero;
-        this.cedula = cedula;
         this.tipo_membresia = tipo_membresia;
     }
 
-    /**
-     * Metodo toString de la clase miembro
-     */
     @Override
     public String toString() {
-        return "Miembro [nombre=" + nombre + ", edad=" + edad + ", genero=" + genero + ", cedula=" + cedula
-                + ", membresia=" + tipo_membresia + "]";
+        return "Miembro [nombre=" + nombre + ", edad=" + edad + ", genero=" + genero + ", tipo_membresia="
+                + tipo_membresia + "]";
     }
 
     /**
@@ -59,14 +54,6 @@ public class Miembro {
 
     public void setGenero(String genero) {
         this.genero = genero;
-    }
-
-    public String getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
     }
 
     public Tipo_membresia getMembresia() {
