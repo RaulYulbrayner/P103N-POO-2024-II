@@ -7,14 +7,22 @@ import java.util.LinkedList;
  *
  */
 public class App {
+
+    public static void mostrarMensaje(String mensaje) {
+        System.out.println(mensaje);
+    }
+
     public static void main(String[] args) {
         // Se crea el gimnasio
         Gimnasio gimnasio = new Gimnasio("Bodytech");
 
         // Se crean los miembros
         Miembro miembro1 = new Miembro("Carlos", 20, "Masculino", Tipo_membresia.MENSUAL);
-        Miembro miembro2 = new Miembro("Carlos", 17, "Masculino", Tipo_membresia.ANUAL);
+
+        Miembro miembro2 = new Miembro("Raul", 16, "Masculino", Tipo_membresia.ANUAL);
+
         Miembro miembro3 = new Miembro("Maria", 16, "Femenino", Tipo_membresia.TRIMESTRAL);
+
 
         // Se crean los entrenadores
         Entrenador entrenador = new Entrenador("Jorge", "Pesas", "1234", "jorge@gmail.com");
@@ -31,7 +39,7 @@ public class App {
         entrenador.agregarMiembroAEntrenador(miembro2);
 
         // Devolver lista con nombre invertidos
-        gimnasio.mostrarMensaje("Lista Nombres Invertidos");
+        mostrarMensaje("Lista Nombres Invertidos");
         gimnasio.listaNombresInverso();
 
         // Obtener los miembros menores de edad
@@ -42,6 +50,13 @@ public class App {
         for (Miembro miembro : menores) {
             System.out.println(miembro);
         }
+
+        // Promedio de edad
+        mostrarMensaje("Promedio de edad " + gimnasio.calcularPromedio());
+
+
+        // Edad comun
+        mostrarMensaje("La edad comun es: " + gimnasio.obtenerEdadComun());
 
         System.out.println(gimnasio);
 

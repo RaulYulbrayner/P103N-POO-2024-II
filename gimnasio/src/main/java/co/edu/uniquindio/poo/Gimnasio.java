@@ -64,10 +64,6 @@ public class Gimnasio {
         }
     }
 
-    public void mostrarMensaje(String mensaje) {
-        System.out.println(mensaje);
-    }
-
     // --------------------------------------------------------------
     // Pilas metodos nuevos del taller
 
@@ -77,7 +73,7 @@ public class Gimnasio {
     public void listaNombresInverso() {
         for (int i = miembros.size() - 1; i >= 0; i--) {
             Miembro miembro = miembros.get(i);
-            mostrarMensaje(miembro.getNombre());
+            miembro.getNombre();
         }
     }
 
@@ -100,13 +96,106 @@ public class Gimnasio {
     // --------------------Completar los metodos---------------------
 
     /*
-     * - calcularPromedioEdad()
      * - eliminarNombreVocal()
      * - determinarVocal()
      * - edadComun()
      */
 
     // --------------------Completar---------------------------------
+
+    /**
+     * Metodo que permitte calcular el promedio de las edades
+     * 
+     * @return
+     */
+    public double calcularPromedio() {
+        double promedio = 0;
+        int contador = 0;
+        for (Miembro miembro : miembros) {
+            promedio += miembro.getEdad();
+            contador++;
+        }
+        promedio = promedio / contador;
+        return promedio;
+    }
+
+    public double calcularPromedio2() {
+        double promedio = 0;
+        for (Miembro miembro : miembros) {
+            promedio += miembro.getEdad();
+        }
+        promedio /= miembros.size();
+        return promedio;
+    }
+
+    /*
+     * Metodo que determina la edad comun
+     * 
+     * @param edad
+     * 
+     * @return edadAnalisis
+     */
+    /*public int edadComun(String edad) {
+        int[] listaEdades = new int[miembros.size()];
+        for (Miembro miembro : miembros) {
+            listaEdades.add(miembro.getEdad());
+        }
+        int edadAnalisis = 0;
+        int maxRepite = 0;
+        for (int i = 0; i < listaEdades.length; i++) {
+            int tmpEdad = listaEdades[i];
+            int tmpRepite = 0;
+            for (int j = i + 1; j < listaEdades.length; j++) {
+                if (tmpEdad == listaEdades[j]) {
+                    tmpRepite += 1;
+                }
+
+            }
+
+            if (tmpEdad == listaEdades[j]) {
+                maxRepite = tmpRepite;
+                edadAnalisis = tmpEdad;
+            }
+    
+            return edadAnalisis;
+        }
+    }*/
+
+    /**
+     * 
+     * @return
+     */
+    //--- mI>20
+    public int obtenerEdadComun(){
+        //20
+        int edadComun = 0;
+        int contadorEdadComun = 0;
+
+        for(Miembro prueba : miembros){
+
+            int contador = 0;
+
+            //                      16
+            int repetido = prueba.getEdad();
+
+            for(Miembro pruebaDos : miembros){
+                //                 16  ==  16                 
+                if(pruebaDos.getEdad() == repetido){
+                    //2
+                    contador++;
+                }
+            }
+            //      2    >        1
+            if (contador > contadorEdadComun) {
+                //  16    =    16
+                edadComun = repetido;     
+                // 1  = 2
+                contadorEdadComun = contador;
+            }
+        }
+        // 16      
+        return edadComun;
+    }
 
     public String getNombre() {
         return nombre;
