@@ -2,6 +2,7 @@ package co.edu.uniquindio.poo;
 
 import java.util.LinkedList;
 
+
 /**
  * Hello world!
  *
@@ -17,15 +18,15 @@ public class App {
         Gimnasio gimnasio = new Gimnasio("Bodytech");
 
         // Se crean los miembros
-        Miembro miembro1 = new Miembro("Carlos", 20, "Masculino", Tipo_membresia.MENSUAL);
+        Miembro miembro1 = new Miembro("Carlos", 16, "Masculino", Tipo_membresia.MENSUAL);
 
-        Miembro miembro2 = new Miembro("Raul", 16, "Masculino", Tipo_membresia.ANUAL);
+        Miembro miembro2 = new Miembro("Raul", 20, "Masculino", Tipo_membresia.ANUAL);
 
-        Miembro miembro3 = new Miembro("Maria", 16, "Femenino", Tipo_membresia.TRIMESTRAL);
-
+        Miembro miembro3 = new Miembro("Maria", 19, "Femenino", Tipo_membresia.ANUAL);
 
         // Se crean los entrenadores
-        Entrenador entrenador = new Entrenador("Jorge", "Pesas", "1234", "jorge@gmail.com");
+        Entrenador entrenador = new Entrenador("Jorge", "Pesas", 1234, "jorge@gmail.com");
+        Entrenador entrenador2 = new Entrenador("Camilo", "Barras", 311434446, "jorge@gmail.com");
 
         // Se agregan los miembros al gimnasio
         gimnasio.agregarMiembro(miembro1);
@@ -34,6 +35,7 @@ public class App {
 
         // Se agregan los entrenadores al gimnasio
         gimnasio.agregarEntrenador(entrenador);
+        gimnasio.agregarEntrenador(entrenador2);
 
         // Se vinculan los miembros al entrenador
         entrenador.agregarMiembroAEntrenador(miembro2);
@@ -54,9 +56,9 @@ public class App {
         // Promedio de edad
         mostrarMensaje("Promedio de edad " + gimnasio.calcularPromedio());
 
-
         // Edad comun
         mostrarMensaje("La edad comun es: " + gimnasio.obtenerEdadComun());
+
 
         System.out.println(gimnasio);
 

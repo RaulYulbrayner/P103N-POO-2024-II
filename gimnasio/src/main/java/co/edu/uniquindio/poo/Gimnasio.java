@@ -135,67 +135,131 @@ public class Gimnasio {
      * 
      * @return edadAnalisis
      */
-    /*public int edadComun(String edad) {
-        int[] listaEdades = new int[miembros.size()];
-        for (Miembro miembro : miembros) {
-            listaEdades.add(miembro.getEdad());
-        }
-        int edadAnalisis = 0;
-        int maxRepite = 0;
-        for (int i = 0; i < listaEdades.length; i++) {
-            int tmpEdad = listaEdades[i];
-            int tmpRepite = 0;
-            for (int j = i + 1; j < listaEdades.length; j++) {
-                if (tmpEdad == listaEdades[j]) {
-                    tmpRepite += 1;
-                }
-
-            }
-
-            if (tmpEdad == listaEdades[j]) {
-                maxRepite = tmpRepite;
-                edadAnalisis = tmpEdad;
-            }
-    
-            return edadAnalisis;
-        }
-    }*/
+    /*
+     * public int edadComun(String edad) {
+     * int[] listaEdades = new int[miembros.size()];
+     * for (Miembro miembro : miembros) {
+     * listaEdades.add(miembro.getEdad());
+     * }
+     * int edadAnalisis = 0;
+     * int maxRepite = 0;
+     * for (int i = 0; i < listaEdades.length; i++) {
+     * int tmpEdad = listaEdades[i];
+     * int tmpRepite = 0;
+     * for (int j = i + 1; j < listaEdades.length; j++) {
+     * if (tmpEdad == listaEdades[j]) {
+     * tmpRepite += 1;
+     * }
+     * 
+     * }
+     * 
+     * if (tmpEdad == listaEdades[j]) {
+     * maxRepite = tmpRepite;
+     * edadAnalisis = tmpEdad;
+     * }
+     * 
+     * return edadAnalisis;
+     * }
+     * }
+     */
 
     /**
      * 
      * @return
      */
-    //--- mI>20
-    public int obtenerEdadComun(){
-        //20
+    // --- mI>20
+    public int obtenerEdadComun() {
+        // 20
         int edadComun = 0;
         int contadorEdadComun = 0;
 
-        for(Miembro prueba : miembros){
+        for (Miembro prueba : miembros) {
 
             int contador = 0;
 
-            //                      16
+            // 16
             int repetido = prueba.getEdad();
 
-            for(Miembro pruebaDos : miembros){
-                //                 16  ==  16                 
-                if(pruebaDos.getEdad() == repetido){
-                    //2
+            for (Miembro pruebaDos : miembros) {
+                // 16 == 16
+                if (pruebaDos.getEdad() == repetido) {
+                    // 2
                     contador++;
                 }
             }
-            //      2    >        1
+            // 2 > 1
             if (contador > contadorEdadComun) {
-                //  16    =    16
-                edadComun = repetido;     
-                // 1  = 2
+                // 16 = 16
+                edadComun = repetido;
+                // 1 = 2
                 contadorEdadComun = contador;
             }
         }
-        // 16      
+        // 16
         return edadComun;
     }
+
+    // --------------------Solución parcial 1------------------------
+
+    /**
+     * Método que permita contar la cantidad de miembros que tienen una membresía
+     * anual y son mayores de edad.
+     */
+    public int contarMiembrosMembresiaAnualMayoresEdad() {
+        int contadorAnual = 0;
+        for (Miembro miembro : miembros) {
+            if (miembro.getMembresia() == Tipo_membresia.ANUAL && miembro.getEdad() > 18) {
+                contadorAnual++;
+            }
+        }
+        return contadorAnual;
+    }
+
+    /**
+     * Método que agregue a una lista los nombres de aquellos entrenadores cuyo
+     * número de teléfono, al sumar los dígitos, sea igual a 30. Ejemplo: "Carlos"
+     * tiene el número de teléfono 311434446, la suma de los dígitos
+     * (3+1+1+4+3+4+4+4+6) es 30.
+     * 
+     * @return lista de miembros que los digitos suman 30
+     */
+    public LinkedList<Entrenador> agregarEntrenadorConSumaTelefono() {
+        LinkedList<Entrenador> entrenadorConSuma = new LinkedList<>();
+        for (Entrenador entrenador : entrenadores) {
+            int telefono = entrenador.getTelefono();
+            int sumaDigitos = 0;
+
+            for (int i = telefono; i > 0; i /= 10) {
+                sumaDigitos += i % 10;
+            }
+
+            if (sumaDigitos == 30) {
+                entrenadorConSuma.add(entrenador);
+            }
+        }
+        return entrenadorConSuma;
+    }
+
+    /**
+     * Método que permita invertir el nombre de cada uno de los miembros de la lista
+     * de miembros que son menores de edad. Ejemplo: raul -> luar
+     */
+    public void invertirNombresMenoresEdad() {
+        for (Miembro miembro : miembros) {
+            if (miembro.getEdad() < 18) {
+                String nombre = miembro.getNombre();
+                String nombreInvertido = "";
+
+                for (int i = nombre.length() - 1; i >= 0; i--) {
+                    nombreInvertido += nombre.charAt(i);
+                }
+
+                miembro.setNombre(nombreInvertido);
+            }
+        }
+    }
+
+    // --------------------Fin Solución parcial 1--------------------
 
     public String getNombre() {
         return nombre;
