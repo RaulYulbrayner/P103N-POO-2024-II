@@ -208,7 +208,7 @@ public class Gimnasio {
     public int contarMiembrosMembresiaAnualMayoresEdad() {
         int contadorAnual = 0;
         for (Miembro miembro : miembros) {
-            if (miembro.getMembresia() == Tipo_membresia.ANUAL && miembro.getEdad() > 18) {
+            if (miembro.getMembresia() == Tipo_membresia.ANUAL && miembro.getEdad() >= 18) {
                 contadorAnual++;
             }
         }
